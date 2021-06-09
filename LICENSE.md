@@ -1,4 +1,4 @@
-This project is based on [BSD 4-Clause License](https://spdx.org/licenses/BSD-4-Clause.html)
+This project is based on [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
 
 **Along with these rules I am adding a rule.**
 
