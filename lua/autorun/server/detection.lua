@@ -9,7 +9,7 @@ hook.Add("AcceptInput", "tornado", function(ent,input)
 				category = string.upper(v)
 				if input == "Start" then
 					SetGlobalBool("TActive", true)
-					SetGlobalString("TCat", "E" .. category .. "Tornado" )
+					SetGlobalString("TCat", "E" .. category .. " Tornado" )
 					SetGlobalEntity("TEnt", ent) 
 				elseif input == "Stop" then
 					SetGlobalBool("TActive", false)
