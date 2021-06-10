@@ -11,7 +11,9 @@ ENT.Sound = Sound("eas/eas.mp3")
 
 if SERVER then
 	function ENT:Initialize()
-		self.Outputs = WireLib.CreateOutputs(self,{ "Active", "Category [STRING]", "Distance", "Tornado [ENTITY]" })
+		if self.OutputWire then
+			self.Outputs = WireLib.CreateOutputs(self,{ "Active", "Category [STRING]", "Distance", "Tornado [ENTITY]" })
+		end
 	end
 end
 
