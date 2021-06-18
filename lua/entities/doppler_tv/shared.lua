@@ -8,5 +8,3 @@ ENT.Author = "TheMerkyShadow(STEAM_1:1:45247697)"
 
 ENT.Spawnable = true
 ENT.AdminOnly = false
-
-ENT.OutputWire = true

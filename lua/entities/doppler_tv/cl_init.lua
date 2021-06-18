@@ -41,7 +41,7 @@ function draw.Eas(self,angles)
 		angle = ( angle:Angle() - angles )
 		angle = math.rad( angle.Yaw )
 	
-		local range = 12500
+		local range = 15000
 		radius = math.Clamp( (self.Distance/range)*125,0,125)
 	
 		X = math.cos( -angle ) * radius + originX

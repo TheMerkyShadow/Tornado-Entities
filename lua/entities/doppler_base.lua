@@ -9,14 +9,18 @@ ENT.AdminOnly = false
 
 ENT.Sound = Sound("eas/eas.mp3")
 
+ENT.OutputWire = true
+
 if SERVER then
 	function ENT:Initialize()
-		self.Outputs = WireLib.CreateOutputs(self,{ "Active", "Category [STRING]", "Distance", "Tornado [ENTITY]" })
+		if self.OutputWire then
+			self.Outputs = WireLib.CreateOutputs(self,{ "Active", "Category [STRING]", "Distance", "Tornado [ENTITY]" })
+		end
 	end
 end
 
 function ENT:Think()
-	self.Active = GetGlobalBool("TActive")
+	self.Active = GetGlobalInt("TActive")
 	self.Category = GetGlobalString("TCat", "Scanning" )
 	self.Tornado = GetGlobalEntity("TEnt")
 	self.ValidTornado = (self.Active and IsValid(self.Tornado))

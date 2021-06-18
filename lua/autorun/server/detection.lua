@@ -1,5 +1,4 @@
-resource.AddWorkshop( "1345205483 " )
-resource.AddFile( "sound/eas/eas.mp3" )
+resource.AddWorkshop( "1345205483" )
 
 local tornado = { "f1", "f2", "f3", "f4", "f5" }
 hook.Add("AcceptInput", "tornado", function(ent,input)
@@ -8,13 +7,13 @@ hook.Add("AcceptInput", "tornado", function(ent,input)
 			if string.find(ent:GetName(), v, 1, true) then
 				category = string.upper(v)
 				if input == "Start" then
-					SetGlobalBool("TActive", true)
+					SetGlobalInt("TActive", 1)
 					SetGlobalString("TCat", "E" .. category .. " Tornado" )
-					SetGlobalEntity("TEnt", ent) 
+					SetGlobalEntity("TEnt", ent:GetParent() ) 
 				elseif input == "Stop" then
-					SetGlobalBool("TActive", false)
+					SetGlobalInt("TActive", 0)
 					SetGlobalString("TCat", "Scanning")
-					SetGlobalEntity("TEnt", nil)
+					SetGlobalEntity("TEnt", NULL )
 				end
 			end
 		end
@@ -26,13 +25,13 @@ if gDisasters then
 		OldCreateTornado = OldCreateTornado or createTornado
 		function createTornado(data)
 			local ent = OldCreateTornado(data)
-			SetGlobalBool("TActive", true)
+			SetGlobalInt("TActive", 1)
 			SetGlobalString("TCat", ent.Data.Parent.PrintName or "Unknown")
 			SetGlobalEntity("TEnt", ent) 
 			ent:CallOnRemove( "Reset", function() 
-				SetGlobalBool("TActive", false)
+				SetGlobalInt("TActive", 0)
 				SetGlobalString("TCat", "Scanning")
-				SetGlobalEntity("TEnt", nil) 	
+				SetGlobalEntity("TEnt", NULL ) 	
 			end)
 			return ent	
 		end
