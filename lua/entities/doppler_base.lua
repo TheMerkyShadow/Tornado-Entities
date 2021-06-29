@@ -44,4 +44,5 @@ function ENT:Think()
 			end
 		end
 	end
+	self:NextThink( CurTime() + 1 )	
 end
