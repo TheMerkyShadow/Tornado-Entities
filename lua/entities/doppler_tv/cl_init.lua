@@ -18,7 +18,7 @@ function ENT:Draw()
 	--WaterMark
 
 	cam.Start3D2D(self:LocalToWorld( Vector( -0.1, 29, 55 ) ), self:LocalToWorldAngles( Angle(0,270,90) ), 0.1)
-		draw.SimpleTextOutlined( "Created By TheMerkyShadow", "DebugFixedSmall", 282, 300, Color(0,0,255), 1, 1, 1, color_black)	
+		draw.SimpleTextOutlined( "Created By TheMerkyShadow", "GModNotify", 282, 300, Color(0,0,255), 1, 1, 1, color_black)	
 	cam.End3D2D()
 	
 end
@@ -35,6 +35,8 @@ function draw.Eas(self,angles)
 	surface.DrawCircle( originX, originY, 100, Color( 0, 100, 0 ) )
 	surface.DrawCircle( originX, originY, 125, Color( 0, 100, 0 ) )
 	
+	
+	
 	if self.ValidTornado then
 	
 		angle = ( self.Tornado:GetPos() - self:GetPos() )
@@ -48,10 +50,10 @@ function draw.Eas(self,angles)
 		Y = math.sin( -angle ) * radius + originY 
 				
 		surface.DrawLine( originX, originY, X, Y )
-		draw.SimpleText( "Distance: " .. self.Distance, "DermaDefault", 420, 200, color_white, 1, 1)
+		draw.SimpleText( "Distance: " .. self.Distance, "GModNotify", 420, 200, color_white, 1, 1)
 		
 	end
 	
-	draw.SimpleText( self.Category, "DermaLarge", 420, 135, Color( 255, 0, 0, 255 ), 1, 1)
+	draw.SimpleText( self.Category, "GModNotify", 420, 135, Color( 255, 0, 0, 255 ), 1, 1)
 
 end
